@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       lng: 5,
       lat: 34,
-      zoom: 2
+      zoom: 2,
+      newInfo: []
     };
   }
 
@@ -36,7 +37,7 @@ class App extends React.Component {
         let lng = e.lngLat.lng.toFixed(4);
         let lat = e.lngLat.lat.toFixed(4);
         this.setState({ lng, lat });
-        console.log(lat, lng);
+
         new mapboxgl.Marker({
             draggable: true
         })
@@ -48,11 +49,14 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Button color="success" className="btn-round" id="toggler" style={{ margin: '5rem 5rem 2rem 10rem' }} outline>
+        <Button color="success" className="btn-round" id="toggler" style={{ margin: '5rem 3rem 2rem 10rem' }} outline>
           Toggle map
         </Button>
-        <Button color="info" className="btn-round" id="toggler1" style={{ margin: '5rem 5rem 2rem 10rem' }} outline >
+        <Button color="info" className="btn-round" id="toggler1" style={{ margin: '5rem 3rem 2rem 10rem' }} outline >
           Toggle status
+        </Button>
+        <Button color="primary" className="btn-round" id="toggler2" style={{ margin: '3rem 3rem 2rem 10rem' }} outline >
+          Toggle history
         </Button>
         <UncontrolledCollapse toggler="#toggler1">
           <Card>
@@ -64,7 +68,18 @@ class App extends React.Component {
         <UncontrolledCollapse toggler="#toggler">
           <Card>
             <CardBody  >
-            <div style={{top: '0', bottom: '0', right: '0', left: '0' }} ref={el => this.mapContainer = el} />
+            <div style={{top: '0', bottom: '0', right: '0', left: '0', width: '100%' }} ref={el => this.mapContainer = el} />
+            </CardBody>
+          </Card>
+        </UncontrolledCollapse>
+        <UncontrolledCollapse toggler="#toggler2">
+          <Card>
+            <CardBody  >
+              {
+                this.state.newInfo.map(item => {
+                  return `History: Latitude: ${item.lat} | Longitude: ${item.lng} |  Zoom: ${item.zoom}`
+                })
+              }
             </CardBody>
           </Card>
         </UncontrolledCollapse>

@@ -51,6 +51,9 @@ class App extends React.Component {
         <Button color="success" id="toggler" style={{ margin: '10rem 5rem 10rem 10rem' }}>
           Toggle
         </Button>
+        <Button color="info" id="toggler1" style={{ margin: '10rem 5rem 10rem 10rem' }}>
+          Toggle 2
+        </Button>
         <UncontrolledCollapse toggler="#toggler">
           <Card>
             <CardBody>
@@ -58,10 +61,7 @@ class App extends React.Component {
             </CardBody>
           </Card>
         </UncontrolledCollapse>
-
-        <Button color="success" id="toggler1" style={{ margin: '10rem 5rem 10rem 10rem' }}>
-          Toggle 2
-        </Button>
+          <hr/>
         <UncontrolledCollapse toggler="#toggler1">
           <Card>
             <CardBody>

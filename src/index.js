@@ -33,7 +33,6 @@ class App extends React.Component {
       });
     });
     map.on('click', (e) => {
-        console.log(e);
         let lng = e.lngLat.lng.toFixed(4);
         let lat = e.lngLat.lat.toFixed(4);
         this.setState({ lng, lat });

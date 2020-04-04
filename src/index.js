@@ -48,26 +48,25 @@ class App extends React.Component {
   render() {
     return (
         <div>
-        <Button color="success" id="toggler" style={{ margin: '10rem 5rem 10rem 10rem' }}>
-          Toggle
+        <Button color="success" id="toggler" style={{ margin: '5rem 5rem 2rem 10rem' }}>
+          Toggle map
         </Button>
-        <Button color="info" id="toggler1" style={{ margin: '10rem 5rem 10rem 10rem' }}>
-          Toggle 2
+        <Button color="info" id="toggler1" style={{ margin: '5rem 5rem 2rem 10rem' }}>
+          Toggle status
         </Button>
-        <UncontrolledCollapse toggler="#toggler">
-          <Card>
-            <CardBody>
-            <div ref={el => this.mapContainer = el} className='mapContainer' />
-            </CardBody>
-          </Card>
-        </UncontrolledCollapse>
-          <hr/>
         <UncontrolledCollapse toggler="#toggler1">
           <Card>
             <CardBody>
             <div className='sidebarStyle'>
                 <div>status: Latitude: {this.state.lat} | Longitude: {this.state.lng} |  Zoom: {this.state.zoom}</div>
             </div>
+            </CardBody>
+          </Card>
+        </UncontrolledCollapse>
+        <UncontrolledCollapse toggler="#toggler">
+          <Card>
+            <CardBody>
+            <div ref={el => this.mapContainer = el} className='mapContainer' />
             </CardBody>
           </Card>
         </UncontrolledCollapse>

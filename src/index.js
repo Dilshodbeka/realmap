@@ -78,11 +78,14 @@ class App extends React.Component {
         <UncontrolledCollapse toggler="#toggler2">
           <Card>
             <CardBody  >
+            <ol>
               {
                 this.state.newInfo.map(item => {
-                  return `History: Latitude: ${item.lat} | Longitude: ${item.lng} ` 
+                  return <li> History: Latitude: {item.lat} | Longitude: {item.lng}</li>
                 }) 
               } 
+              
+              </ol>
             </CardBody>
           </Card>
         </UncontrolledCollapse>

@@ -36,10 +36,13 @@ class App extends React.Component {
     map.on('click', (e) => {
         let lng = e.lngLat.lng.toFixed(4);
         let lat = e.lngLat.lat.toFixed(4);
+
+        this.state.newInfo.push({lng: lng, lat: lat})
+        
         this.setState({ lng, lat });
 
         new mapboxgl.Marker({
-            draggable: true
+            draggable: true,
         })
             .setLngLat([lng, lat])
             .addTo(map);
@@ -55,7 +58,7 @@ class App extends React.Component {
         <Button color="info" className="btn-round" id="toggler1" style={{ margin: '5rem 3rem 2rem 10rem' }} outline >
           Toggle status
         </Button>
-        <Button color="primary" className="btn-round" id="toggler2" style={{ margin: '3rem 3rem 2rem 10rem' }} outline >
+        <Button color="primary" className="btn-round" id="toggler2" style={{ margin: '5rem 3rem 2rem 10rem' }} outline >
           Toggle history
         </Button>
         <UncontrolledCollapse toggler="#toggler1">
@@ -77,9 +80,9 @@ class App extends React.Component {
             <CardBody  >
               {
                 this.state.newInfo.map(item => {
-                  return `History: Latitude: ${item.lat} | Longitude: ${item.lng} |  Zoom: ${item.zoom}`
-                })
-              }
+                  return `History: Latitude: ${item.lat} | Longitude: ${item.lng} ` 
+                }) 
+              } 
             </CardBody>
           </Card>
         </UncontrolledCollapse>
